@@ -45,7 +45,10 @@ chrome.omnibox.onInputEntered.addListener(function(text) {
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
     var index = tab[0].index;
-
-    chrome.tabs.create({ url: url, index: index+1 });
+    if (tab[0].url == 'chrome://newtab/') {
+      chrome.tabs.update(tab[0].id, {url: url})
+    } else {
+      chrome.tabs.create({ url: url, index: index+1 });
+    }
    });
 })
