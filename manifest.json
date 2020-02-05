@@ -14,5 +14,8 @@
 
     "permissions": [
       "tabs"
-    ]
+    ],
+    "icons": {
+      "48": "pantheon-logo.png"
+    }
   }
